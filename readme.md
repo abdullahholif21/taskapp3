@@ -9,6 +9,11 @@ TaskApp3 is a PHP-based web application designed to manage tasks and users effic
 - **Authentication**: Secure login system with session management.
 - **Responsive Design**: User-friendly interface with a responsive layout.
 - **Modular Components**: Includes reusable components like header, sidebar, navbar, and footer.
+- **Role-Based Access Control**: Different user roles (e.g., Admin, User) with specific permissions.
+- **Search Functionality**: Search for tasks and users using keywords.
+- **Task Prioritization**: Assign priority levels (e.g., High, Medium, Low) to tasks.
+- **Activity Logs**: Track user actions and changes made to tasks.
+- **Dark Mode**: Toggle between light and dark themes for better user experience.
 
 ## Project Structure
 The project is organized as follows:
@@ -18,7 +23,10 @@ taskapp3
 ├── assets
 │   ├── css
 │   │   ├── bootstrap.min.css   # Bootstrap styles
-│   │   └── main.css            # Custom styles
+│   │   ├── main.css            # Custom styles
+│   │   
+│   ├── js
+│   │   └── scripts.js          # JavaScript for interactivity
 ├── config
 │   └── auth.php                # Authentication logic
 ├── database
@@ -33,9 +41,11 @@ taskapp3
 ├── register-user.php           # User registration page
 ├── edit-user.php               # User editing page
 ├── list_users.php              # User listing page
-├── regiser-task.php            # Task registration page
+├── register-task.php           # Task registration page
 ├── edit-task.php               # Task editing page
 ├── list_tasks.php              # Task listing page
+├── search.php                  # Search functionality
+
 ├── remove-user.php             # User deletion logic
 └── README.md                   # Project documentation
 ```
@@ -65,6 +75,9 @@ taskapp3
 - **Dashboard**: After logging in, users are redirected to the dashboard.
 - **User Management**: Admins can manage users via the `list_users.php` page.
 - **Task Management**: Admins can manage tasks via the `list_tasks.php` page.
+- **Search**: Use the search bar to find specific tasks or users.
+- **Dark Mode**: Toggle between light and dark themes using the dark mode button.
+- **Activity Logs**: View logs of user actions in the `logs/activity.log` file.
 
 ## Contributing
 Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
