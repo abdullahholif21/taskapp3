@@ -69,6 +69,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
+
 INSERT INTO `users` (`id`, `fullname`, `email`, `username`, `PASSWORD`, `created_att`) VALUES
 (26, 'Tusbahle', 'cali@vali.com', 'root', 'admin', NULL),
 (28, 'Tusbahle Abdirazak', 'ali@ali.com', 'root', '81dc9bdb52d04dc20036dbd8313ed055', NULL),
