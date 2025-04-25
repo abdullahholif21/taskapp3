@@ -8,7 +8,7 @@
   include_once("./includes/head.php");
   include_once("./includes/sidebar.php");
   include_once("./includes/navbar.php");
-
+include_once('./config/functions.php');
  ?>
 
  <div class="main-content">
@@ -26,6 +26,7 @@
               </div>
         </div>
         <div class="card-body">
+                <?php getAlert();?>
 
          <table class="table table-bordered table-hover table-sm">
                 <thead>
@@ -36,14 +37,15 @@
                         <th>Desciption</th>
                         <th>status</th>
                         <th>Due_date</th>
-                        <th>userid</th>
+                        <th>Days</th>
+                        <th>assing_to</th>
                         <th>actions</th>
                   </tr>
                 </thead>
                 <tbody>
                 <?php   
                 $conn=getConnection();
-                $sql="select * from  tasks order by id desc";
+                $sql="CALL task_list()";
                 $result=$conn->query($sql);
                 if ($result->num_rows>0){
                         while($items=$result->fetch_assoc()){
@@ -55,8 +57,9 @@
                   <td><?php   echo $items["Desciption"]   ?></td>
                   <td><?php   echo $items["status"]   ?></td>
                   <td><?php   echo $items["Due_date"]   ?></td>
-                  <td><?php   echo $items["userid"]   ?></td>
-                  <td><a href="edit-task.php" class="btn btn-primary btn-sm">edit</a> 
+                  <td><?php   echo $items["remainingDays"]   ?></td>
+                  <td><?php   echo $items["assign_to"]   ?></td>
+                  <td><a href="edit-task.php?id=<?php echo $items['id']; ?>" class="btn btn-primary btn-sm">edit</a> 
                        <a onclick="return confirm('ma hubta in task la dlete gareeyo')"    href="remove-task.php?id=<?php   echo $items["id"]   ?>" class="btn btn-danger  btn-sm">delete</a>
                 </td>
             </tr>

@@ -15,7 +15,9 @@ include_once('./includes/navbar.php');
             $fullname = '';
             $email = '';
             $username = '';
+            $password = '';
             $id = '';
+            $isOk = true;
 
         if (isset($_POST['id']) == true && empty($_POST['id'])  == false ) {
             $id = $_POST['id'];
@@ -42,31 +44,42 @@ include_once('./includes/navbar.php');
             $fullname = $_POST['fullname'];
             $username = $_POST['username'];
             $email = $_POST['email'];
-            $password =  md5($_POST['password']);
+            $password = $_POST['password'];
 
             if (empty($fullname)){
                 echo '<p class="text-danger">Fadland fullname soo qor </p>';
+                $isOk = false;
             }
 
 
             if (empty($username)){
                 echo '<p class="text-danger">Fadland username soo qor </p>';
+                $isOk = false;
+
             }
 
             if (empty($email)){
                 echo '<p class="text-danger">Fadland email soo qor </p>';
+                $isOk = false;
+
             }
 
             if (empty($password)){
                 echo '<p class="text-danger">Fadland password soo qor </p>';
-            }
+                $isOk = false;
 
+            }
+            $password =  md5($_POST['password']);
+
+            if ($isOk){
+          
             $conn = getConnection();
 
          $result =   $conn->query("UPDATE users  SET fullname= '$fullname', username = '$username', email = '$email', `password` = '$password' WHERE id = $id");
             if ($result){
                header('location: ./list_users.php');
             }
+        }
         }
 
 

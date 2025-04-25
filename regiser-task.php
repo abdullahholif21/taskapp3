@@ -40,8 +40,8 @@ if (empty($Due_date)){
     exit();
 }
    
-    $sql="INSERT INTO `tasks` ( `title`, `Desciption`, `status`,  `Due_date`) VALUES
-( '$title', '$Desciption', '$status',  '$Due_date')";
+    $sql="INSERT INTO `tasks` ( `title`, `Desciption`, `status`,  `Due_date`, userid) VALUES
+( '$title', '$Desciption', '$status',  '$Due_date', " . getUserId() . ")";
 if (execdb($sql)==true){
     header("location:./list_tasks.php");
 }else{

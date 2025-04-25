@@ -25,10 +25,15 @@
                     <span class="links_name">List tasks</span>
                 </a>
             </li>
-
+            <li>
+                <a href="./tasks-reports.php" class="">
+                    <i class="fa-solid fa-search"></i>
+                    <span class="links_name">task report</span>
+                </a>
+            </li>
 
             <li class="log_out">
-                <a href="#">
+                <a href="./logout.php" class="">
                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                     <span class="links_name">Log out</span>
                 </a>
